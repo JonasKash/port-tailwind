@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .responsive-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .neon-text-primary {
+    @apply bg-gradient-to-r from-[#00F0FF] to-[#9442FE] bg-clip-text text-transparent;
+  }
+
+  .neon-gradient {
+    @apply bg-gradient-to-r from-[#00F0FF] to-[#9442FE];
+  }
+
+  .neon-gradient-text {
+    @apply bg-gradient-to-r from-[#00F0FF] to-[#9442FE] bg-clip-text text-transparent;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  }
+
+  .typewriter-cursor {
+    @apply inline-block ml-0;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+}
+
+/* Efeitos Neon */
+.hover-neon {
+  @apply transition-all duration-300 hover:scale-105;
+}
+
+.hover-neon:hover {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5),
+              0 0 40px rgba(148, 66, 254, 0.3);
+}
+
+.hover-neon-link {
+  @apply relative transition-all duration-300;
+}
+
+.hover-neon-link:hover {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5),
+               0 0 20px rgba(148, 66, 254, 0.3);
+}
+
+.neon-table-row {
+  @apply transition-all duration-300;
+}
+
+.neon-table-row:hover {
+  @apply scale-[1.02] bg-white/5;
+  box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.3),
+              inset 0 0 40px rgba(148, 66, 254, 0.2);
+}
+
+.neon-cell {
+  @apply transition-all duration-300;
+}
+
+.neon-cell:hover {
+  @apply scale-105;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3),
+              0 0 30px rgba(148, 66, 254, 0.2);
+}
+
+.neon-button {
+  @apply px-6 py-2 rounded-lg bg-gradient-to-r from-[#00F0FF] to-[#9442FE] text-black font-medium
+         transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+.neon-button:hover {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5),
+              0 0 40px rgba(148, 66, 254, 0.3);
+}
+
+/* Estilos Base */
+body {
+  background: #050505;
+  color: #fff;
+}
+
+/* Animações */
+.gradient-text {
+  background: linear-gradient(90deg, #00F0FF, #9442FE);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: gradientFlow 4s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+} 
