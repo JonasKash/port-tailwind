@@ -42,7 +42,7 @@ export default function Portfolio() {
         "Confirmação de pagamento",
         "Entrega ou retirada"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/atendimento",
+      webhookUrl: "https://teste.ugaritdigital.com/webhook/marketing",
       initialMessage: "Olá! Sou o Agente Max da Farmácia. Como posso ajudar você hoje?"
     },
     {
@@ -67,7 +67,7 @@ export default function Portfolio() {
         "Filtragem por requisitos",
         "Encaminhamento ao RH"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/atendimento",
+      webhookUrl: "https://teste.ugaritdigital.com/webhook/atendimento",
       initialMessage: "Olá! Sou o Agente de RH. Como posso ajudar no seu processo seletivo?"
     },
     {
@@ -92,7 +92,7 @@ export default function Portfolio() {
         "Agendamento da reunião",
         "Confirmação e lembretes"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/sdr",
+      webhookUrl: "https://teste.ugaritdigital.com/webhook/sentimental",
       initialMessage: "Olá! Sou o Agente SDR. Vamos agendar uma conversa sobre nossos serviços?"
     },
     {
@@ -117,7 +117,7 @@ export default function Portfolio() {
         "Qualificação do interesse",
         "Agendamento ou encaminhamento"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/imobiliario",
+      webhookUrl: "https://teste.ugaritdigital.com/webhook/sentimental",
       initialMessage: "Olá! Sou o Agente Imobiliário. Como posso ajudar na sua busca por imóveis?"
     },
     {
@@ -142,7 +142,7 @@ export default function Portfolio() {
         "Avaliação de necessidade",
         "Encaminhamento quando necessário"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/emocional",
+      webhookUrl: "https://teste.ugaritdigital.com/webhook/sentimental",
       initialMessage: "Olá! Sou o Agente Emocional. Como está se sentindo hoje?"
     },
     {
@@ -167,7 +167,7 @@ export default function Portfolio() {
         "Verificação de resolução",
         "Escalamento quando necessário"
       ],
-      webhookUrl: "https://portfolio.n8n.ugaritdigital.com/webhook/suporte",
+      webhookUrl: "https://teste.ugaritdigital.com/webhook/sentimental",
       initialMessage: "Olá! Sou o Agente de Atendimento. Como posso ajudar com seu problema técnico?"
     }
   ];
