@@ -178,7 +178,7 @@ export default function Portfolio() {
 
   const handleAgentClick = (agent) => {
     setSelectedAgent(agent);
-    setShowChat(false); // Reset chat state when changing agents
+    setShowChat(true); // Abrir o chat automaticamente ao clicar no agente
   };
 
   const handleCloseDetail = () => {
@@ -187,7 +187,9 @@ export default function Portfolio() {
   };
 
   const handleOpenChat = () => {
-    setShowChat(true);
+    if (selectedAgent) {
+      setShowChat(true);
+    }
   };
 
   const handleCloseChat = () => {

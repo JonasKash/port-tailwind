@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
 
   const menuItems = [
     { title: 'Home', path: '/' },
-    { title: 'Portfolio', path: '/portfolio' },
+    { title: 'Portfólio', path: '/portfolio' },
     { title: 'Blog', path: '/blog' },
     { title: 'Parceiros', path: '/parceiros' },
     { title: 'Contato', path: '/contact' }

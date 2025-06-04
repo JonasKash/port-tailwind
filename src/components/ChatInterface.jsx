@@ -269,33 +269,25 @@ const ChatInterface = ({
 
   // Send to webhook using the provided webhookUrl prop
   const sendToWebhook = async (payload) => {
-    // Ensure webhookUrl is provided before fetching
-    if (!webhookUrl) {
-      console.error("Webhook URL is not defined for this agent.");
-      // Optionally, show an error message to the user
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: Date.now(),
-          sender: "agent",
-          text: "Configuration error: Webhook URL is missing.",
-          timestamp: new Date(),
-          isError: true
-        }
-      ]);
-      return; // Stop execution if URL is missing
-    }
-    
-    console.log(`[DEBUG] Sending to webhook: ${webhookUrl}`, payload);
+    try {
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
 
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    const json = await res.json();
-    console.log("[DEBUG] Response JSON:", json);
-    return json;
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error sending to webhook:', error);
+      throw error;
+    }
   };
 
   // Function to handle agent response
