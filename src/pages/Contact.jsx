@@ -61,9 +61,26 @@ export default function Contact() {
     
     setIsSubmitting(true);
     
-    // Simulate API call
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch('https://n8n.ugaritdigital.com/webhook/form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          agentType: formData.agentType
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao enviar formulário');
+      }
+
       setIsSuccess(true);
       setFormData({
         name: "",
@@ -75,6 +92,10 @@ export default function Contact() {
       });
     } catch (error) {
       console.error("Error submitting form:", error);
+      setErrors(prev => ({
+        ...prev,
+        submit: "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente."
+      }));
     } finally {
       setIsSubmitting(false);
     }
@@ -296,6 +317,9 @@ export default function Contact() {
                         </>
                       )}
                     </motion.button>
+                    {errors.submit && (
+                      <p className="mt-4 text-red-500 text-center">{errors.submit}</p>
+                    )}
                   </form>
                 </div>
               )}

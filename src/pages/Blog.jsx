@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, Heart, Share2, MessageCircle, Bookmark, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { posts } from "../data/blogPosts";
-import Header from "../components/Header";
 
 const destaques = posts.filter(post => post.destaque);
 const publicacoesRecentes = posts.filter(post => !post.destaque);
@@ -21,8 +20,6 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-black">
-      <Header />
-      
       {/* Hero Carousel */}
       <section className="relative h-screen pt-20">
         {destaques.map((post, index) => (

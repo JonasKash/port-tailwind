@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Heart, Share2, MessageCircle, Clock, ArrowLeft, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { Link, useParams } from "react-router-dom";
 import { posts } from "../data/blogPosts";
-import Header from "../components/Header";
 
 export default function BlogPost() {
   const { id } = useParams();
@@ -24,7 +23,6 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="min-h-screen bg-black">
-        <Header />
         <div className="flex items-center justify-center h-screen">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-white mb-4">Post não encontrado</h1>
@@ -39,8 +37,6 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-black">
-      <Header />
-      
       {/* Hero Section */}
       <section className="relative h-[70vh] pt-20">
         <div className="absolute inset-0">
