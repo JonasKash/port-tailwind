@@ -1,0 +1,242 @@
+@import url('https://fonts.cdnfonts.com/css/avenir-next-lt-pro');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-neon: #00F0FF;
+  --secondary-neon: #9442FE;
+  --background-dark: #000000;
+  --text-light: #FFFFFF;
+  --success-neon: #4ADE80;
+  --warning-neon: #FFB800;
+  --error-neon: #FF4444;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white min-h-screen;
+    font-family: 'Avenir Next LT Pro', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .neon-border {
+    @apply border border-[var(--primary-neon)]/20 shadow-[0_0_25px_rgba(0,240,255,0.1)];
+  }
+
+  .neon-text-primary {
+    @apply text-[var(--primary-neon)] drop-shadow-[0_0_3px_rgba(0,240,255,0.5)];
+  }
+
+  .neon-text-secondary {
+    @apply text-[var(--secondary-neon)] drop-shadow-[0_0_3px_rgba(148,66,254,0.5)];
+  }
+
+  .neon-gradient {
+    @apply bg-gradient-to-r from-[var(--primary-neon)] to-[var(--secondary-neon)];
+  }
+
+  .neon-gradient-text {
+    @apply bg-gradient-to-r from-[var(--primary-neon)] to-[var(--secondary-neon)] text-transparent bg-clip-text;
+  }
+
+  .glass-card {
+    @apply bg-black/50 backdrop-blur-xl rounded-2xl border border-white/10;
+  }
+
+  .responsive-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
+  }
+
+  .neon-button {
+    @apply px-6 py-3 rounded-full bg-gradient-to-r from-[var(--primary-neon)]/20 to-[var(--secondary-neon)]/20 
+           border border-[var(--primary-neon)]/30 text-white font-medium
+           hover:from-[var(--primary-neon)]/30 hover:to-[var(--secondary-neon)]/30
+           transition-all duration-300 ease-in-out;
+  }
+
+  .neon-button-solid {
+    @apply px-6 py-3 rounded-full bg-gradient-to-r from-[var(--primary-neon)] to-[var(--secondary-neon)]
+           text-black font-bold hover:shadow-[0_0_25px_rgba(0,240,255,0.3)]
+           transition-all duration-300 ease-in-out;
+  }
+
+  .neon-icon {
+    @apply text-[var(--primary-neon)] drop-shadow-[0_0_3px_rgba(0,240,255,0.6)];
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8;
+  }
+
+  .card-hover {
+    @apply hover:scale-105 transition-transform duration-300 ease-in-out;
+  }
+
+  /* Animações */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-neon {
+    animation: pulseNeon 2s ease-in-out infinite;
+  }
+
+  /* Novo sistema de hover interativo */
+  .hover-neon {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-neon:hover {
+    @apply transform scale-[1.02] relative;
+  }
+
+  .hover-neon:hover::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.1),
+                0 0 30px rgba(148, 66, 254, 0.05);
+    animation: pulseNeon 2s infinite;
+  }
+
+  .hover-neon:focus {
+    @apply outline-none;
+    box-shadow: 0 0 0 2px var(--primary-neon);
+  }
+
+  /* Variante para cards */
+  .hover-neon-card {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-neon-card:hover {
+    @apply transform scale-[1.02];
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1),
+                0 0 40px rgba(148, 66, 254, 0.05);
+  }
+
+  /* Variante para botões */
+  .hover-neon-button {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-neon-button:hover {
+    @apply transform scale-[1.05];
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  }
+
+  /* Variante para links */
+  .hover-neon-link {
+    @apply transition-all duration-300 ease-out relative;
+  }
+
+  .hover-neon-link:hover {
+    @apply text-[var(--primary-neon)];
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+  }
+
+  /* Variante para inputs */
+  .hover-neon-input {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-neon-input:focus {
+    @apply transform scale-[1.02];
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+  }
+
+  /* Animação de pulse neon */
+  @keyframes pulseNeon {
+    0% {
+      opacity: 0.5;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.1),
+                  0 0 30px rgba(148, 66, 254, 0.05);
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.15),
+                  0 0 40px rgba(148, 66, 254, 0.1);
+    }
+    100% {
+      opacity: 0.5;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.1),
+                  0 0 30px rgba(148, 66, 254, 0.05);
+    }
+  }
+
+  /* Variante para ícones de redes sociais */
+  .social-icon {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .social-icon-instagram:hover {
+    @apply text-[#E1306C];
+    filter: drop-shadow(0 0 10px #E1306C);
+  }
+
+  .social-icon-linkedin:hover {
+    @apply text-[#0077B5];
+    filter: drop-shadow(0 0 10px #0077B5);
+  }
+
+  /* Efeito de pulso suave para ícones */
+  @keyframes iconPulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .social-icon:hover {
+    animation: iconPulse 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseNeon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 640px) {
+  .responsive-grid {
+    @apply grid-cols-1;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .responsive-grid {
+    @apply grid-cols-2;
+  }
+}
+
+@media (min-width: 1025px) {
+  .responsive-grid {
+    @apply grid-cols-3;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400;
+}
+
+/* ... existing code ... */ 
