@@ -354,91 +354,83 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto flex flex-col items-center">
               {/* Fase 1 */}
-              <div className="relative w-full flex flex-col md:flex-row mb-10 md:mb-16 items-center">
-                <div className="w-full md:w-1/2 flex justify-start md:justify-end pr-0 md:pr-8 items-center">
-                  <div className="border-2 border-[#00f0ff] rounded-2xl p-6 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #00f0ff, 0 0 8px 2px #00f0ff' }}>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-                      <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Fase 1 – Diagnóstico e Imersão</span>
-                      <span className="text-sm text-[#A3D8D8] font-bold whitespace-nowrap">Semana 1-2</span>
-                    </div>
-                    <div className="font-bold text-xl md:text-2xl mb-3">Diagnóstico e Imersão</div>
-                    <div className="text-[#A3D8D8] mb-3 text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Entender seu negócio e definir a estratégia</div>
-                    <div className="italic text-[#A3D8D8] mb-4 text-base">"Mergulhamos no seu negócio para entender processos, dores e oportunidades."</div>
-                    <div className="font-bold mb-2 text-base">Entregas:</div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Diagnóstico Técnico</span>
-                      <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Mapa de Processos</span>
-                      <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Estratégia de Automação</span>
-                      <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">MVP Funcional</span>
-                    </div>
+              <div className="relative w-full flex flex-col mb-10 md:mb-16 items-center">
+                <div className="border-2 border-[#00f0ff] rounded-2xl p-6 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #00f0ff, 0 0 8px 2px #00f0ff' }}>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold">Fase 1 – Diagnóstico e Imersão</span>
+                    <span className="text-sm text-[#A3D8D8] font-bold">Semana 1-2</span>
+                  </div>
+                  <div className="font-bold text-xl md:text-2xl mb-3">Diagnóstico e Imersão</div>
+                  <div className="text-[#A3D8D8] mb-3 text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Entender seu negócio e definir a estratégia</div>
+                  <div className="italic text-[#A3D8D8] mb-4 text-base">"Mergulhamos no seu negócio para entender processos, dores e oportunidades."</div>
+                  <div className="font-bold mb-2 text-base">Entregas:</div>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold">Diagnóstico Técnico</span>
+                    <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold">Mapa de Processos</span>
+                    <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold">Estratégia de Automação</span>
+                    <span className="bg-[#1A4D4D] text-[#00f0ff] px-4 py-1.5 rounded-full text-sm font-semibold">MVP Funcional</span>
                   </div>
                 </div>
               </div>
 
               {/* Fase 2 */}
-              <div className="relative w-full flex flex-col md:flex-row mb-10 md:mb-16 items-center">
-                <div className="w-full md:w-1/2 flex justify-start pl-0 md:pl-8 items-center">
-                  <div className="border-2 border-[#FF6F91] rounded-2xl p-6 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #FF6F91, 0 0 8px 2px #FF6F91' }}>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-                      <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Fase 2 – Desenvolvimento do Agente</span>
-                      <span className="text-sm text-[#E8B8B8] font-bold whitespace-nowrap">Semana 3-4</span>
-                    </div>
-                    <div className="font-bold text-xl md:text-2xl mb-3">Desenvolvimento do Agente</div>
-                    <div className="text-[#E8B8B8] mb-3 text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Criar um agente que fale como você e resolva problemas reais</div>
-                    <div className="italic text-[#E8B8B8] mb-4 text-base">"Desenvolvemos o agente com sua identidade, conectamos às suas ferramentas e treinamos com dados reais."</div>
-                    <div className="font-bold mb-2 text-base">Entregas:</div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Agente em Versão Beta</span>
-                      <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Integração com Ferramentas</span>
-                      <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Base de Conhecimento Inicial</span>
-                      <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Dashboard de Monitoramento</span>
-                    </div>
+              <div className="relative w-full flex flex-col mb-10 md:mb-16 items-center">
+                <div className="border-2 border-[#FF6F91] rounded-2xl p-6 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #FF6F91, 0 0 8px 2px #FF6F91' }}>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold">Fase 2 – Desenvolvimento do Agente</span>
+                    <span className="text-sm text-[#E8B8B8] font-bold">Semana 3-4</span>
+                  </div>
+                  <div className="font-bold text-xl md:text-2xl mb-3">Desenvolvimento do Agente</div>
+                  <div className="text-[#E8B8B8] mb-3 text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Criar um agente que fale como você e resolva problemas reais</div>
+                  <div className="italic text-[#E8B8B8] mb-4 text-base">"Desenvolvemos o agente com sua identidade, conectamos às suas ferramentas e treinamos com dados reais."</div>
+                  <div className="font-bold mb-2 text-base">Entregas:</div>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold">Agente em Versão Beta</span>
+                    <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold">Integração com Ferramentas</span>
+                    <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold">Base de Conhecimento Inicial</span>
+                    <span className="bg-[#2B1A1A] text-[#FF6F91] px-4 py-1.5 rounded-full text-sm font-semibold">Dashboard de Monitoramento</span>
                   </div>
                 </div>
               </div>
 
               {/* Fase 3 */}
-              <div className="relative w-full flex flex-col md:flex-row mb-10 md:mb-16 items-center">
-                <div className="w-full md:w-1/2 flex justify-start md:justify-end pr-0 md:pr-8 items-center">
-                  <div className="border-2 border-[#FFD600] rounded-2xl p-6 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #FFD600, 0 0 8px 2px #FFD600' }}>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Fase 3 – Otimização de Performance</span>
-                      <span className="text-sm text-[#E8E6B8] font-bold whitespace-nowrap">Semana 5-6</span>
-                    </div>
-                    <div className="font-bold text-xl md:text-2xl mb-3">Otimização de Performance</div>
-                    <div className="text-[#E8E6B8] mb-3 text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Garantir estabilidade, segurança e conversão real</div>
-                    <div className="italic text-[#E8E6B8] mb-4 text-base">"Refinamos a performance do agente com testes reais, foco em segurança e otimização das conversões."</div>
-                    <div className="font-bold mb-2 text-base">Entregas:</div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Checklist de Qualidade Técnica</span>
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Relatório de Insights de Ajustes</span>
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Agente Otimizado</span>
-                      <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Validação de Segurança e Conversão</span>
-                    </div>
+              <div className="relative w-full flex flex-col mb-10 md:mb-16 items-center">
+                <div className="border-2 border-[#FFD600] rounded-2xl p-6 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #FFD600, 0 0 8px 2px #FFD600' }}>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold">Fase 3 – Otimização de Performance</span>
+                    <span className="text-sm text-[#E8E6B8] font-bold">Semana 5-6</span>
+                  </div>
+                  <div className="font-bold text-xl md:text-2xl mb-3">Otimização de Performance</div>
+                  <div className="text-[#E8E6B8] mb-3 text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Garantir estabilidade, segurança e conversão real</div>
+                  <div className="italic text-[#E8E6B8] mb-4 text-base">"Refinamos a performance do agente com testes reais, foco em segurança e otimização das conversões."</div>
+                  <div className="font-bold mb-2 text-base">Entregas:</div>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold">Checklist de Qualidade Técnica</span>
+                    <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold">Relatório de Insights de Ajustes</span>
+                    <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold">Agente Otimizado</span>
+                    <span className="bg-[#2B2B1A] text-[#FFD600] px-4 py-1.5 rounded-full text-sm font-semibold">Validação de Segurança e Conversão</span>
                   </div>
                 </div>
               </div>
 
               {/* Fase 4 */}
-              <div className="relative w-full flex flex-col md:flex-row mb-10 md:mb-16 items-center">
-                <div className="w-full md:w-1/2 flex justify-start pl-0 md:pl-8 items-center">
-                  <div className="border-2 border-[#00FF85] rounded-2xl p-6 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #00FF85, 0 0 8px 2px #00FF85' }}>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Fase 4 – Operação Contínua</span>
-                      <span className="text-sm text-[#A3D8B8] font-bold whitespace-nowrap">Semana 7+</span>
-                    </div>
-                    <div className="font-bold text-xl md:text-2xl mb-3">Operação Contínua</div>
-                    <div className="text-[#A3D8B8] mb-3 text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Lançar com controle, treinar o time e manter a performance</div>
-                    <div className="italic text-[#A3D8B8] mb-4 text-base">"Transformamos o projeto em operação: rodando 24/7 com alertas, KPIs e time capacitado."</div>
-                    <div className="font-bold mb-2 text-base">Entregas:</div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Agente em Produção</span>
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Manual de Acesso Seguro</span>
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Painel de Monitoramento</span>
-                      <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap">Suporte Contínuo 24/7</span>
-                    </div>
+              <div className="relative w-full flex flex-col mb-10 md:mb-16 items-center">
+                <div className="border-2 border-[#00FF85] rounded-2xl p-6 md:p-8 w-full max-w-xl text-left text-white bg-black/60" style={{ boxShadow: '0 0 24px 4px #00FF85, 0 0 8px 2px #00FF85' }}>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                    <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold">Fase 4 – Operação Contínua</span>
+                    <span className="text-sm text-[#A3D8B8] font-bold">Semana 7+</span>
+                  </div>
+                  <div className="font-bold text-xl md:text-2xl mb-3">Operação Contínua</div>
+                  <div className="text-[#A3D8B8] mb-3 text-base flex items-center gap-2"><span className="text-xl">🎯</span>Propósito: Lançar com controle, treinar o time e manter a performance</div>
+                  <div className="italic text-[#A3D8B8] mb-4 text-base">"Transformamos o projeto em operação: rodando 24/7 com alertas, KPIs e time capacitado."</div>
+                  <div className="font-bold mb-2 text-base">Entregas:</div>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold">Agente em Produção</span>
+                    <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold">Manual de Acesso Seguro</span>
+                    <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold">Painel de Monitoramento</span>
+                    <span className="bg-[#1A4D2B] text-[#00FF85] px-4 py-1.5 rounded-full text-sm font-semibold">Suporte Contínuo 24/7</span>
                   </div>
                 </div>
               </div>
