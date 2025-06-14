@@ -195,150 +195,155 @@ export default function Portfolio() {
     setShowChat(false);
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
+
   return (
     <>
       <div className="min-h-screen bg-black">
+        {/* Chat Interface */}
+        <AnimatePresence>
+          {showChat && selectedAgent && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+            >
+              <div className="w-full max-w-4xl h-[80vh] bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
+                <div className="flex justify-between items-center p-4 border-b border-gray-800">
+                  <h3 className="text-xl font-semibold text-white">Chat com {selectedAgent.title}</h3>
+                  <button
+                    onClick={handleCloseDetail}
+                    className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+                  >
+                    <X className="w-6 h-6 text-gray-400" />
+                  </button>
+                </div>
+                <ChatInterface
+                  webhookUrl={selectedAgent.webhookUrl}
+                  initialMessage={selectedAgent.initialMessage}
+                  onClose={handleCloseDetail}
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Agent Detail Modal */}
         <AnimatePresence>
-          {selectedAgent && (
+          {selectedAgent && !showChat && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 overflow-y-auto flex justify-center items-start pt-10 pb-20 px-4"
+              className="fixed inset-0 z-50 overflow-y-auto flex justify-center items-start pt-4 sm:pt-10 pb-20 px-2 sm:px-4"
             >
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
-                className="relative bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl shadow-xl max-w-5xl w-full overflow-hidden"
+                className="relative bg-gradient-to-b from-gray-900 to-black border border-gray-800 rounded-2xl shadow-xl w-full max-w-5xl overflow-hidden"
                 style={{ maxHeight: '90vh', overflowY: 'auto' }}
               >
-                {/* Show chat when showChat is true */}
-                {showChat ? (
-                  <div className="h-[80vh]">
-                    <ChatInterface 
-                      agentName={selectedAgent.title}
-                      agentAvatar={selectedAgent.image} // Still using image for avatar in chat
-                      onClose={() => setShowChat(false)}
-                      webhookUrl={selectedAgent.webhookUrl}
-                      initialMessage={selectedAgent.initialMessage}
+                {/* Modal Header */}
+                <div className="relative h-48 sm:h-64 md:h-80">
+                  {selectedAgent.videoUrl && selectedAgent.videoUrl.endsWith('.gif') ? (
+                    <img
+                      key={selectedAgent.id}
+                      src={selectedAgent.videoUrl}
+                      alt={`Demonstração do ${selectedAgent.title}`}
+                      className="w-full h-full object-cover"
                     />
-                  </div>
-                ) : (
-                  <>
-                    <div className="relative h-64 sm:h-96 bg-black"> {/* Added bg-black as fallback */}
-                      {selectedAgent.videoUrl && selectedAgent.videoUrl.endsWith('.gif') ? (
-                        <img
-                          key={selectedAgent.id}
-                          src={selectedAgent.videoUrl}
-                          alt={`Demonstração do ${selectedAgent.title}`}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : selectedAgent.videoUrl ? (
-                        <video
-                          key={selectedAgent.id}
-                          src={selectedAgent.videoUrl}
-                          alt={`Demonstração do ${selectedAgent.title}`}
-                          className="w-full h-full object-cover"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          onError={(e) => console.error("Erro ao carregar vídeo:", e)}
-                        >
-                          Seu navegador não suporta a tag de vídeo.
-                        </video>
-                      ) : (
-                        // Fallback image if videoUrl is not provided
-                        <img
-                          src={selectedAgent.image}
-                          alt={selectedAgent.title}
-                          className="w-full h-full object-cover"
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                      <button
-                        onClick={handleClose}
-                        className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-full transition-colors"
-                      >
-                        <X className="w-6 h-6 text-white" />
-                      </button>
+                  ) : selectedAgent.videoUrl ? (
+                    <video
+                      key={selectedAgent.id}
+                      src={selectedAgent.videoUrl}
+                      alt={`Demonstração do ${selectedAgent.title}`}
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      onError={(e) => console.error("Erro ao carregar vídeo:", e)}
+                    >
+                      Seu navegador não suporta a tag de vídeo.
+                    </video>
+                  ) : (
+                    <img
+                      src={selectedAgent.image}
+                      alt={selectedAgent.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                  <button
+                    onClick={handleClose}
+                    className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+                  >
+                    <X className="w-6 h-6 text-white" />
+                  </button>
+                </div>
+
+                <div className="p-4 sm:p-8">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-4 gradient-text">Sobre o Agente</h2>
+                  <p className="text-gray-300 text-lg leading-relaxed">{selectedAgent.longDescription}</p>
+
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 gradient-text">Funcionalidades</h3>
+                      <ul className="space-y-2">
+                        {selectedAgent.features.map((feature, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="w-5 h-5 mr-3 mt-1 flex-shrink-0">
+                              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#00f0ff] to-[#9442fe]"></div>
+                            </div>
+                            <span className="text-gray-300 text-lg">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    <div className="p-8">
-                      <div className="max-w-3xl mx-auto">
-                        <div className="mb-8">
-                          <h2 className="text-3xl font-bold">{selectedAgent.title}</h2>
-                          <div className="mt-2">
-                            <span className="px-3 py-1 text-sm rounded-full bg-gray-800 text-gray-300">
-                              {categories.find(c => c.id === selectedAgent.category)?.name}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="space-y-8">
-                          <div>
-                            <h3 className="text-xl font-semibold mb-4 gradient-text">Sobre o Agente</h3>
-                            <p className="text-gray-300 text-lg leading-relaxed">{selectedAgent.longDescription}</p>
-                          </div>
-
-                          <div>
-                            <h3 className="text-xl font-semibold mb-4 gradient-text">Funcionalidades</h3>
-                            <ul className="space-y-2">
-                              {selectedAgent.features.map((feature, index) => (
-                                <li key={index} className="flex items-start">
-                                  <div className="w-5 h-5 mr-3 mt-1 flex-shrink-0">
-                                    <div className="w-full h-full rounded-full bg-gradient-to-br from-[#00f0ff] to-[#9442fe]"></div>
-                                  </div>
-                                  <span className="text-gray-300 text-lg">{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div>
-                            <h3 className="text-xl font-semibold mb-4 gradient-text">Fluxo de Trabalho</h3>
-                            <div className="relative pl-8">
-                              {selectedAgent.workflow.map((step, index) => (
-                                <div key={index} className="relative pb-8">
-                                  {index !== selectedAgent.workflow.length - 1 && (
-                                    <span className="absolute top-5 left-[11px] -ml-px h-full w-0.5 bg-gradient-to-b from-[#00f0ff] to-[#9442fe]" aria-hidden="true"></span>
-                                  )}
-                                  <div className="relative flex items-start space-x-3">
-                                    <div className="relative">
-                                      <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#00f0ff] to-[#9442fe] flex items-center justify-center ring-4 ring-gray-900">
-                                        <span className="text-black font-bold">{index + 1}</span>
-                                      </div>
-                                    </div>
-                                    <div className="min-w-0 flex-1 py-1.5">
-                                      <div className="text-lg text-gray-300">
-                                        {step}
-                                      </div>
-                                    </div>
-                                  </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 gradient-text">Fluxo de Trabalho</h3>
+                      <div className="relative pl-8">
+                        {selectedAgent.workflow.map((step, index) => (
+                          <div key={index} className="relative pb-8">
+                            {index !== selectedAgent.workflow.length - 1 && (
+                              <span className="absolute top-5 left-[11px] -ml-px h-full w-0.5 bg-gradient-to-b from-[#00f0ff] to-[#9442fe]" aria-hidden="true"></span>
+                            )}
+                            <div className="relative flex items-start space-x-3">
+                              <div className="relative">
+                                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-[#00f0ff] to-[#9442fe] flex items-center justify-center ring-4 ring-gray-900">
+                                  <span className="text-black font-bold">{index + 1}</span>
                                 </div>
-                              ))}
+                              </div>
+                              <div className="min-w-0 flex-1 py-1.5">
+                                <div className="text-lg text-gray-300">
+                                  {step}
+                                </div>
+                              </div>
                             </div>
                           </div>
-
-                          {/* Botão para abrir o chat */}
-                          <div className="pt-8 text-center">
-                            <motion.button
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                              onClick={handleOpenChat}
-                              className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-full shadow-lg text-black bg-gradient-to-r from-[#00f0ff] to-[#9442fe] hover:from-[#00d0df] hover:to-[#8432ee] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
-                            >
-                              Solicitar Este Agente
-                              <Plus className="ml-2 -mr-1 h-5 w-5" />
-                            </motion.button>
-                          </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
-                  </>
-                )}
+
+                    {/* Botão para abrir o chat */}
+                    <div className="pt-8 text-center">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={handleOpenChat}
+                        className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-full shadow-lg text-black bg-gradient-to-r from-[#00f0ff] to-[#9442fe] hover:from-[#00d0df] hover:to-[#8432ee] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
+                      >
+                        Solicitar Este Agente
+                        <Plus className="ml-2 -mr-1 h-5 w-5" />
+                      </motion.button>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           )}
@@ -371,7 +376,7 @@ export default function Portfolio() {
           {/* Agent Grid */}
           <motion.div 
             layout 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           >
             <AnimatePresence>
               {filteredAgents.map((agent) => (
