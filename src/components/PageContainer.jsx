@@ -23,16 +23,16 @@ const PageContainer = ({
       <div className="responsive-container section-padding relative">
         {/* Page Header */}
         {(title || subtitle || badge) && (
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 sm:mb-16">
             {badge && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="flex justify-center mb-6"
+                className="flex justify-center mb-4 sm:mb-6"
               >
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
-                  <span className="text-sm text-white/90">{badge}</span>
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+                  <span className="text-xs sm:text-sm text-white/90">{badge}</span>
                 </div>
               </motion.div>
             )}
@@ -42,7 +42,7 @@ const PageContainer = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
               >
                 {title}
               </motion.h1>
@@ -53,7 +53,7 @@ const PageContainer = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl text-gray-300 max-w-3xl mx-auto"
+                className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto px-4"
               >
                 {subtitle}
               </motion.p>
