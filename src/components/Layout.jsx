@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import UgaritLogo from '../assets/UgaritLogo.svg';
 import WhatsAppIcon from '../assets/icons/whatsapp.svg';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, hideWhatsApp = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -213,18 +213,20 @@ const Layout = ({ children }) => {
       </div>
 
       {/* WhatsApp Button */}
-      <a
-        href="https://wa.me/5516996235750"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 group border border-[#25D366]/30 hover:border-[#25D366]/60"
-      >
-        <img 
-          src={WhatsAppIcon} 
-          alt="WhatsApp" 
-          className="w-6 h-6 group-hover:animate-pulse" 
-        />
-      </a>
+      {!hideWhatsApp && (
+        <a
+          href="https://wa.me/5516996235750"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-white/10 backdrop-blur-sm rounded-full shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all duration-300 hover:scale-110 group border border-[#25D366]/30 hover:border-[#25D366]/60"
+        >
+          <img 
+            src={WhatsAppIcon} 
+            alt="WhatsApp" 
+            className="w-6 h-6 group-hover:animate-pulse" 
+          />
+        </a>
+      )}
 
       {/* Footer */}
       <footer className="bg-black border-t border-white/10">

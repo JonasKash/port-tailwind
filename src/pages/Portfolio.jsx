@@ -4,6 +4,7 @@ import { createPageUrl } from "../utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Plus, X, ChevronRight, ChevronLeft } from "lucide-react";
 import ChatInterface from "../components/ChatInterface";
+import Layout from "../components/Layout";
 
 export default function Portfolio() {
   const [selectedAgent, setSelectedAgent] = useState(null);
@@ -200,7 +201,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <>
+    <Layout hideWhatsApp={showChat}>
       <div className="min-h-screen bg-black">
         {/* Chat Interface */}
         <AnimatePresence>
@@ -336,7 +337,7 @@ export default function Portfolio() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={handleOpenChat}
-                        className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-full shadow-lg text-black bg-gradient-to-r from-[#00f0ff] to-[#9442fe] hover:from-[#00d0df] hover:to-[#8432ee] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300"
+                        className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-full shadow-lg text-black bg-gradient-to-r from-[#00f0ff] to-[#9442fe] hover:from-[#00d0df] hover:to-[#8432ee] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00f0ff]/50 transition-all duration-300 mb-6"
                       >
                         Solicitar Este Agente
                         <Plus className="ml-2 -mr-1 h-5 w-5" />
@@ -417,7 +418,7 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 
