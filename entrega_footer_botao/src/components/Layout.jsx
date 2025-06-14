@@ -4,7 +4,7 @@ import { createPageUrl } from "../utils";
 // Import specific icons from lucide-react
 import { Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
-export default function Layout({ children }) {
+export default function Layout({ children, hideWhatsApp = false }) {
   const location = useLocation();
   const currentPage = location.pathname;
 
@@ -44,16 +44,18 @@ export default function Layout({ children }) {
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <a
-        href="https://wa.me/5516996235750" // Added country code 55
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Fale conosco pelo WhatsApp"
-        className="fixed bottom-6 right-6 z-50 p-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-full shadow-lg hover:from-green-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-110"
-      >
-        {/* Using MessageCircle as WhatsApp icon from lucide-react */}
-        <MessageCircle className="w-6 h-6 text-white" /> 
-      </a>
+      {!hideWhatsApp && (
+        <a
+          href="https://wa.me/5516996235750" // Added country code 55
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Fale conosco pelo WhatsApp"
+          className="fixed bottom-6 right-6 z-50 p-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-full shadow-lg hover:from-green-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-110"
+        >
+          {/* Using MessageCircle as WhatsApp icon from lucide-react */}
+          <MessageCircle className="w-6 h-6 text-white" /> 
+        </a>
+      )}
     </div>
   );
 }

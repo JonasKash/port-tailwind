@@ -4,7 +4,6 @@ import { createPageUrl } from "../utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Plus, X, ChevronRight, ChevronLeft } from "lucide-react";
 import ChatInterface from "../components/ChatInterface";
-import Layout from "../components/Layout";
 
 export default function Portfolio() {
   const [selectedAgent, setSelectedAgent] = useState(null);
@@ -43,7 +42,7 @@ export default function Portfolio() {
         "Confirmação de pagamento",
         "Entrega ou retirada"
       ],
-      webhookUrl: "https://n8n.ugaritdigital.com/webhook/firebase",
+      webhookUrl: "https://wbn.guvito.site/webhook/atendimento",
       initialMessage: "Olá! Sou o Agente Max da Farmácia. Como posso ajudar você hoje?"
     },
     {
@@ -68,7 +67,7 @@ export default function Portfolio() {
         "Filtragem por requisitos",
         "Encaminhamento ao RH"
       ],
-      webhookUrl: "https://n8n.ugaritdigital.com/webhook/firebase",
+      webhookUrl: "https://wbn.guvito.site/webhook/atendimento",
       initialMessage: "Olá! Sou o Agente de RH. Como posso ajudar no seu processo seletivo?"
     },
     {
@@ -93,7 +92,7 @@ export default function Portfolio() {
         "Agendamento da reunião",
         "Confirmação e lembretes"
       ],
-      webhookUrl: "https://n8n.ugaritdigital.com/webhook/firebase",
+      webhookUrl: "https://wbn.guvito.site/webhook/atendimento",
       initialMessage: "Olá! Sou o Agente SDR. Vamos agendar uma conversa sobre nossos serviços?"
     },
     {
@@ -118,7 +117,7 @@ export default function Portfolio() {
         "Qualificação do interesse",
         "Agendamento ou encaminhamento"
       ],
-      webhookUrl: "https://n8n.ugaritdigital.com/webhook/firebase",
+      webhookUrl: "https://wbn.guvito.site/webhook/atendimento",
       initialMessage: "Olá! Sou o Agente Imobiliário. Como posso ajudar na sua busca por imóveis?"
     },
     {
@@ -143,7 +142,7 @@ export default function Portfolio() {
         "Avaliação de necessidade",
         "Encaminhamento quando necessário"
       ],
-      webhookUrl: "https://n8n.ugaritdigital.com/webhook/firebase",
+      webhookUrl: "https://wbn.guvito.site/webhook/atendimento",
       initialMessage: "Olá! Sou o Agente Emocional. Como está se sentindo hoje?"
     },
     {
@@ -168,7 +167,7 @@ export default function Portfolio() {
         "Verificação de resolução",
         "Escalamento quando necessário"
       ],
-      webhookUrl: "https://n8n.ugaritdigital.com/webhook/firebase",
+      webhookUrl: "https://wbn.guvito.site/webhook/atendimento",
       initialMessage: "Olá! Sou o Agente de Atendimento. Como posso ajudar com seu problema técnico?"
     }
   ];
@@ -201,7 +200,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <Layout hideWhatsApp={showChat}>
+    <>
       <div className="min-h-screen bg-black">
         {/* Chat Interface */}
         <AnimatePresence>
@@ -352,11 +351,6 @@ export default function Portfolio() {
 
         {/* Main Content - Portfolio Grid */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="text-4xl font-bold text-center mb-4 gradient-text">Portfólio de Agentes</h1>
-          <p className="text-xl text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-            Explore nossos agentes especializados, prontos para automatizar e otimizar diversas áreas do seu negócio.
-          </p>
-
           {/* Category Filters */}
           <div className="flex justify-center space-x-2 sm:space-x-4 mb-12 flex-wrap">
             {categories.map((category) => (
@@ -418,7 +412,7 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }
 

@@ -8,6 +8,7 @@ import WhatsAppIcon from '../assets/icons/whatsapp.svg';
 const Layout = ({ children, hideWhatsApp = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const isPortfolioPage = location.pathname === '/portfolio';
 
   const menuItems = [
     { title: 'Home', path: '/' },
@@ -213,7 +214,7 @@ const Layout = ({ children, hideWhatsApp = false }) => {
       </div>
 
       {/* WhatsApp Button */}
-      {!hideWhatsApp && (
+      {!(hideWhatsApp || isPortfolioPage) && (
         <a
           href="https://wa.me/5516996235750"
           target="_blank"
