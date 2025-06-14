@@ -38,7 +38,7 @@ export default function Home() {
     <>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden pt-24 md:pt-0">
           <div className="absolute inset-0">
             {/* Background Image */}
             <div className="absolute inset-0">
@@ -52,8 +52,8 @@ export default function Home() {
           </div>
 
           <div className="container mx-auto px-6 relative z-10">
-            <motion.div 
-              className="max-w-4xl mx-auto text-center"
+            <motion.div
+              className="max-w-4xl mx-auto text-center pt-10 pb-24 md:py-0"
               style={{ opacity: heroOpacity, y: heroY }}
             >
               {/* Badge */}
@@ -758,7 +758,7 @@ export default function Home() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black font-bold rounded-full whitespace-nowrap flex items-center space-x-2"
+                    className="px-8 py-4 bg-gradient-to-r from-[#00f0ff] to-[#9442fe] text-black font-bold rounded-full flex items-center space-x-2"
                   >
                     <span>Quero Inovar com a Ugarit</span>
                     <Zap className="w-5 h-5" />
